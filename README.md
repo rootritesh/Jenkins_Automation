@@ -20,18 +20,18 @@ Make the 3 jobs
 #Create a freestyle project name the item job1
 configure using following steps:
 
-$Add git repo and configure using dev1 branch.
-$Add Poll SCM using * * * * *
-$Add this code in the executable shell:
+$Add git repo and configure using dev1 branch.<br>
+$Add Poll SCM using * * * * *<br>
+$Add this code in the executable shell:<br>
 
-sudo cp -v -r -f * /root/new 
-if sudo docker ps -a | grep webodev1
-then
-echo running
-else
-sudo docker run -dit --net=host -p 8082:80 -v /root/new:/usr/local/apache2/htdocs/ --name webosdev1 httpd
-fi
-sudo docker inspect webosdev1 | grep IP
+sudo cp -v -r -f * /root/new <br>
+if sudo docker ps -a | grep webodev1<br>
+then<br>
+echo running<br>
+else<br>
+sudo docker run -dit --net=host -p 8082:80 -v /root/new:/usr/local/apache2/htdocs/ --name webosdev1 httpd<br>
+fi<br>
+sudo docker inspect webosdev1 | grep IP<br>
 
 $Save it.
 
@@ -45,13 +45,13 @@ Add Poll SCM using * * * * *<br>
 Add this code in the executable shell:<br>
 
 sudo cp -v -r -f * /root/newmaster
-if sudo docker ps -a | grep webosmaster
-then
-echo "already running"
-else
-sudo docker run -dit --net=host -p 8082:80 -v /root/newmaster:/usr/local/apache2/htdocs/ --name webosmaster httpd
-fi
-sudo docker inspect webosmaster
+if sudo docker ps -a | grep webosmaster<br>
+then<br>
+echo "already running"<br>
+else<br>
+sudo docker run -dit --net=host -p 8082:80 -v /root/newmaster:/usr/local/apache2/htdocs/ --name webosmaster httpd<br>
+fi<br>
+sudo docker inspect webosmaster<br>
 
 $Save it.
 
@@ -65,15 +65,15 @@ $Add build trigger under the option (Build after other projects are built) add j
 
 $Add this code in the executable shell:<br>
 
-git merge origin/dev1
-sudo cp -v -r -f * /root/mainenv
-if sudo docker ps -a | grep webosenv
-then
-echo "already running"
-else
-sudo docker run -dit --net=host -p 8082:80 -v /root/mainenv:/usr/local/apache2/htdocs/ --name webosenv httpd
-fi
-sudo docker inspect webosenv
+git merge origin/dev1<br>
+sudo cp -v -r -f * /root/mainenv<br>
+if sudo docker ps -a | grep webosenv<br>
+then<br>
+echo "already running"<br>
+else<br>
+sudo docker run -dit --net=host -p 8082:80 -v /root/mainenv:/usr/local/apache2/htdocs/ --name webosenv httpd<br>
+fi<br>
+sudo docker inspect webosenv<br>
 
 $Save it.<br>
 
