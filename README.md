@@ -3,13 +3,12 @@ Jenkins_Automation_To_test_deploy_and_run
 
 #Prerequisite
 Step -1)
-#install Git
+#install Git and make branch using command:git branch dev1
 #install jenkins
 #install docker
 
 Step-2)
 #Start the services
-
 #systemctl start jenkins
 #systemctl start docker
 
@@ -41,9 +40,9 @@ $Save it.
 #Create a freestyle project name the item job2
 configure using following steps:
 
-$Add git repo and configure using master branch.
-$Add Poll SCM using * * * * *
-$Add this code in the executable shell:
+Add git repo and configure using master branch.
+Add Poll SCM using * * * * *
+Add this code in the executable shell:
 
 sudo cp -v -r -f * /root/newmaster
 if sudo docker ps -a | grep webosmaster
